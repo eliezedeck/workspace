@@ -1,1 +1,2 @@
-alias k=kubectl
+alias k='kubectl'
+alias h='history|grep'
