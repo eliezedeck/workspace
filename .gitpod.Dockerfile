@@ -15,4 +15,9 @@ RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | apt-key add 
 # Useful tools
 RUN apt-get install -y \
   iputils-ping dnsutils rsync mc \
-  musl
+  musl \
+  wireguard
+
+# Install gdrive tool
+RUN cd /tmp && wget 'https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_linux_amd64.tar.gz' && \
+  tar xf gdrive_2.1.1_linux_amd64.tar.gz && mv gdrive /usr/local/bin
