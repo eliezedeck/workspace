@@ -10,7 +10,8 @@ tasks:
         echo "${TAILSCALE_STATE_ELIE_ZEDECK_WORKSPACE}" | sudo tee /var/lib/tailscale/tailscaled.state > /dev/null
       fi
       sudo tailscaled
-  - name: Tailscale
+
+  - name: Tailscale startup
     command: |
       if [ -n "${TAILSCALE_STATE_ELIE_ZEDECK_WORKSPACE}" ]; then
         sudo -E tailscale up
@@ -19,5 +20,13 @@ tasks:
         sudo -E tailscale up --hostname "gitpod_github--$VRepo"
         # store the tailscale state into gitpod user
         gp env TAILSCALE_STATE_ELIE_ZEDECK_WORKSPACE="$(sudo cat /var/lib/tailscale/tailscaled.state)"
+      fi
+      exit
+
+  - name: GDrive auth restore
+    command: |
+      if [ -n "${ELIEZEDECK_GDRIVE_AUTH_STATE}" ]; then
+        mkdir -p ~/.gdrive
+        echo "${ELIEZEDECK_GDRIVE_AUTH_STATE}" | tee ~/.gdrive/token_v2.json > /dev/null
       fi
       exit
