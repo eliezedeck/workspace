@@ -13,4 +13,6 @@ RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | apt-key add 
   && update-alternatives --set ip6tables /usr/sbin/ip6tables-nft
 
 # Useful tools
-RUN apt-get install -y iputils-ping dnsutils
+RUN apt-get install -y \
+  iputils-ping dnsutils rsync mc \
+  musl
