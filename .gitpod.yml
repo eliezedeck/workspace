@@ -29,4 +29,6 @@ tasks:
         mkdir -p ~/.gdrive
         echo "${ELIEZEDECK_GDRIVE_AUTH_STATE}" | tee ~/.gdrive/token_v2.json > /dev/null
       fi
+
+      echo "$KEROZEN_MG20XX_SA" | docker login -u _json_key --password-stdin https://eu.gcr.io
       exit
