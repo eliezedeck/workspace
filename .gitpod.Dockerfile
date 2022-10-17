@@ -3,6 +3,8 @@
 
 FROM gitpod/workspace-go:latest
 
+ENV TZ=Indian/Antananarivo
+
 USER root
 
 # Install Tailscale
