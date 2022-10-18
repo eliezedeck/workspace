@@ -11,6 +11,17 @@ tasks:
       echo 'k rollout restart deployment ' >> /home/gitpod/.bash_history
       echo 'lsof -i ":8003"' >> /home/gitpod/.bash_history
 
+  - name: Setup NodeJS
+    before: |
+      nvm install 14
+      nvm alias default 14
+      npm install -g npm
+      echo "nvm use default 14" >> ~/.bashrc
+    init: |
+      # Preload NPM packages
+      echo "Uncomment the yarn install or use npm install just below"
+      #yarn install
+
   - name: Tailscale daemon
     command: |
       if [ -n "${TAILSCALE_STATE_ELIE_ZEDECK_WORKSPACE}" ]; then
