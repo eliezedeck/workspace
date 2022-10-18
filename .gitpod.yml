@@ -31,3 +31,11 @@ tasks:
 
       echo "$KEROZEN_MG20XX_SA" | docker login -u _json_key --password-stdin https://eu.gcr.io
       exit
+
+vscode:
+  extensions:
+    - akosyakov.gitpod-monitor
+    - mhutchie.git-graph
+    - thinker.copy-as-snippet
+
+    - github.copilot
