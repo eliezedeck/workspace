@@ -2,6 +2,15 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: Setup
+    before: |
+      # Add useful commands into the Bash history to make it easier to run common commands
+      echo 'k port-forward services/change-me 8080:8080 8081:8081 --address 0.0.0.0' > /home/gitpod/.bash_history
+      echo 'k config get-contexts' >> /home/gitpod/.bash_history
+      echo 'k config use-context ' >> /home/gitpod/.bash_history
+      echo 'k rollout restart deployment ' >> /home/gitpod/.bash_history
+      echo 'lsof -i ":8003"' >> /home/gitpod/.bash_history
+
   - name: Tailscale daemon
     command: |
       if [ -n "${TAILSCALE_STATE_ELIE_ZEDECK_WORKSPACE}" ]; then
