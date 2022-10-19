@@ -16,7 +16,7 @@ RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | apt-key add 
 
 # Useful tools
 RUN apt-get install -y \
-  iputils-ping dnsutils rsync mc \
+  iputils-ping dnsutils rsync mc netcat \
   musl \
   wireguard
 
