@@ -52,6 +52,10 @@ tasks:
       echo "$KEROZEN_MG20XX_SA" | docker login -u _json_key --password-stdin https://eu.gcr.io
       exit
 
+  - name: Instructions
+    command: |
+      echo "Visit https://cloud.google.com/container-registry/docs/advanced-authentication#token in order to use a Service Account with gcloud"
+
 vscode:
   extensions:
     - akosyakov.gitpod-monitor
